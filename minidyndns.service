@@ -1,0 +1,11 @@
+[Unit]
+Description=MiniDynDNS A Simple Dynamic DNS Server
+Requires=network.target
+
+[Service]
+#Specify correct paths
+ExecStart=/usr/bin/ruby /path/to/dns.rb -c /path/to/config.yml -d /path/to/db.yml
+ExecReload=/bin/kill -USR1 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
